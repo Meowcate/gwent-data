@@ -400,7 +400,7 @@ class CardGenerator
          * - Strength is two digits and there is no 1
          * When there is a 1 with another digit, each needs to be closer to the other (1 is thin)
          */
-        if (is_int($cardDatas['strength']) && $cardDatas['strength'] > 0) { // Events are 0 or absent
+        if (ctype_digit($cardDatas['strength']) && $cardDatas['strength'] > 0) { // Events are 0 or absent
             if ($cardDatas['strength'] < 10) {
                 $strength = new Imagick();
                 if ($strength->readImage(ASSETS_FOLDER . DS . 'symbols' . DS . 'strength' . DS . 'number' . $cardDatas['strength'] . '.png') !== true) {
